@@ -1,0 +1,1 @@
+pyinstaller --onefile --noconsole -i "Icon_Maker_Icon.ico" Icon_Maker.py

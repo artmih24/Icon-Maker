@@ -1,0 +1,1 @@
+python -m PyQt5.uic.pyuic -x Icon_Maker_window.ui -o Icon_Maker_window.py
