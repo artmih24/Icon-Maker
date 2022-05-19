@@ -58,8 +58,11 @@ class mywindow(QtWidgets.QMainWindow):
     def SelectButtonClicked(self):
         InputImageName = QFileDialog.getOpenFileName(self, "Выбрать изображение", "/home", "Все типы изображений (*.jpg *.jpeg *.jpe *.jfif *.png *.bmp *.gif);; Изображение JPEG (*.jpg *.jpeg *.jpe *.jfif);; Изображение PNG (*.png);; Изображение BMP (*.bmp);; Изображение GIF (*.gif)")[0]
         self.ui.lineEdit.setText(InputImageName)
-        if self.ui.lineEdit.text() != "": self.ui.pushButton_2.setEnabled(True)
-        else: self.ui.pushButton_2.setEnabled(False)
+        self.ui.pushButton_2.setEnabled(self.ui.lineEdit.text() != "")
+        # if self.ui.lineEdit.text() != "":
+        #     self.ui.pushButton_2.setEnabled(True)
+        # else:
+        #     self.ui.pushButton_2.setEnabled(False)
 
     def aboutClicked(self):
         self.about_window.show()
@@ -75,18 +78,23 @@ class mywindow(QtWidgets.QMainWindow):
  / / _` |/ _` | '__| __| '_ ` _ \| | '_ \  __) | || |_
 | | (_| | (_| | |  | |_| | | | | | | | | |/ __/|__   _|
  \ \__,_|\__,_|_|   \__|_| |_| |_|_|_| |_|_____|  |_|
-  \____/''')"""
+  \____/''')
+"""
 
     def FilePathEntered(self):
-        if self.ui.lineEdit.text() != "": self.ui.pushButton_2.setEnabled(True)
-        else: self.ui.pushButton_2.setEnabled(False)
+        self.ui.pushButton_2.setEnabled(self.ui.lineEdit.text() != "")
+        # if self.ui.lineEdit.text() != "":
+        #     self.ui.pushButton_2.setEnabled(True)
+        # else:
+        #     self.ui.pushButton_2.setEnabled(False)
 
     def closeEvent(self, e):
         self.about_window.close()
 
 
-app = QtWidgets.QApplication([])
-application = mywindow()
-application.show()
+if __name__ == '__main__':
+    app = QtWidgets.QApplication([])
+    application = mywindow()
+    application.show()
 
-sys.exit(app.exec())
+    sys.exit(app.exec())
